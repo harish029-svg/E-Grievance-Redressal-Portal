@@ -36,20 +36,20 @@ const features = [
 const Features = () => (
   <section id="features" className="section">
     <div className="container">
-      <div className="mb-12 text-center">
-        <span className="text-sm uppercase tracking-[0.3em] text-violet-400">Features</span>
-        <h2 className="text-4xl font-bold text-white mt-4">Premium grievance management with intuitive controls.</h2>
+      <div className="section-header">
+        <span className="section-label">Features</span>
+        <h2 className="section-heading">Premium grievance management with intuitive controls.</h2>
       </div>
-      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="feature-grid">
         {features.map((feature) => {
           const Icon = feature.icon;
           return (
-            <div key={feature.title} className="glass-card p-8 border border-slate-800/90">
-              <div className="inline-flex items-center justify-center rounded-3xl bg-gradient-to-br from-purple-600 to-fuchsia-500 text-white w-14 h-14 shadow-lg shadow-purple-500/20 mb-6">
+            <div key={feature.title} className="feature-card">
+              <div className="feature-icon">
                 <Icon size={24} />
               </div>
-              <h3 className="text-2xl font-semibold text-white mb-3">{feature.title}</h3>
-              <p className="text-gray-300 leading-relaxed">{feature.description}</p>
+              <h3 className="feature-title">{feature.title}</h3>
+              <p className="feature-description">{feature.description}</p>
             </div>
           );
         })}

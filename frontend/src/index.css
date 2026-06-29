@@ -12,6 +12,8 @@
   --color-accent: #FBBF24;
   --color-accent-light: #FCD34D;
   --color-accent-dark: #D97706;
+  --color-brand: #2563EB;
+  --color-brand-soft: #eff6ff;
 
   /* Neutrals */
   --color-white: #FFFFFF;
@@ -120,8 +122,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: var(--text-base);
-  line-height: 1.6;
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.8;
   color: var(--color-gray-200);
   background-color: var(--color-primary-dark);
   min-height: 100vh;

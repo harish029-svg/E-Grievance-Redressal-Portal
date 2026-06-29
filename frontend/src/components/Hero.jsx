@@ -1,40 +1,98 @@
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { ShieldCheck, ListChecks, Clock3, UserCheck } from 'lucide-react';
+
+const stats = [
+  { value: '92%', label: 'Resolution rate' },
+  { value: '24h', label: 'Avg response' },
+  { value: '3.8/5', label: 'Citizen score' },
+];
 
 const Hero = () => (
-  <section id="home" className="container section pt-32">
-    <div className="grid gap-10 lg:grid-cols-2 items-center">
+  <section id="home" className="section hero-section">
+    <div className="container hero-grid">
       <div>
-        <span className="text-sm uppercase tracking-[0.3em] text-blue-400">E-Grievance Portal</span>
-        <h1 className="text-5xl md:text-6xl font-bold text-white mt-6 leading-tight">
-          Resolve citizen grievances quickly with a secure online portal.
+        <span className="hero-tag">E-Grievance Portal</span>
+
+        <h1 className="hero-title">
+          A modern grievance portal for citizens, officers, and administrators.
         </h1>
-        <p className="text-gray-300 mt-6 max-w-2xl">
-          Manage complaints, assign officers, and keep all stakeholders informed with one easy-to-use platform.
+
+        <p className="hero-copy-text">
+          Streamline complaint submission, assign officers automatically, and keep every stakeholder informed from submission through resolution.
         </p>
-        <div className="mt-10 flex flex-wrap gap-4">
-          <Link to="/register" className="btn btn-accent btn-lg">
+
+        <div className="hero-ctas">
+          <Link to="/register" className="site-btn-primary">
             Get Started
           </Link>
-          <Link to="/login" className="btn btn-outline btn-lg">
+          <Link to="/login" className="site-btn-secondary">
             Login
           </Link>
         </div>
-      </div>
-      <div className="rounded-[2rem] overflow-hidden glass-card" style={{ minHeight: '420px' }}>
-        <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.2),_transparent_40%),_radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.2),_transparent_35%),_linear-gradient(180deg,_rgba(15,23,42,0.9),_rgba(15,23,42,0.75))] p-8">
-          <p className="text-blue-300 text-sm uppercase tracking-[0.25em] mb-4">Citizen grievance summary</p>
-          <div className="grid gap-4">
-            <div className="glass-card p-6">
-              <h3 className="text-xl font-semibold text-white">Track complaint status</h3>
-              <p className="text-gray-300 mt-3">View pending, in-progress, and resolved grievances under one account.</p>
+
+        <div className="hero-stats">
+          {stats.map((item) => (
+            <div key={item.label} className="hero-stat-card">
+              <p className="stat-value">{item.value}</p>
+              <p className="stat-label">{item.label}</p>
             </div>
-            <div className="glass-card p-6">
-              <h3 className="text-xl font-semibold text-white">Officer assignment</h3>
-              <p className="text-gray-300 mt-3">Assign proper officers to complaints and manage workload efficiently.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="hero-panel"
+      >
+        <div className="hero-glow hero-glow-purple" />
+        <div className="hero-glow hero-glow-gold" />
+
+        <div className="hero-panel-grid">
+          <div className="hero-card">
+            <div className="panel-row">
+              <div className="site-logo-icon hero-panel-icon">
+                <ShieldCheck size={18} />
+              </div>
+              <div>
+                <p className="hero-card-title">Secure grievance tracking</p>
+                <p className="hero-card-text">Built for official transparency.</p>
+              </div>
+            </div>
+            <div className="hero-pill-row">
+              <span className="hero-pill">Citizen first</span>
+              <span className="hero-pill hero-pill-muted">Audit-ready</span>
+            </div>
+          </div>
+
+          <div className="hero-feature-grid">
+            <div className="hero-feature">
+              <div className="panel-row hero-feature-heading" style={{ color: 'var(--color-secondary)' }}>
+                <ListChecks size={20} />
+                <strong>Ticket workflows</strong>
+              </div>
+              <p className="hero-card-text">Track every complaint stage from submission to closure.</p>
+            </div>
+            <div className="hero-feature">
+              <div className="panel-row hero-feature-heading" style={{ color: 'var(--color-accent)' }}>
+                <Clock3 size={20} />
+                <strong>Fast responses</strong>
+              </div>
+              <p className="hero-card-text">Ensure faster officer and admin action across departments.</p>
+            </div>
+          </div>
+
+          <div className="hero-note-card">
+            <div className="panel-row" style={{ color: 'var(--color-white)' }}>
+              <UserCheck size={20} />
+              <p className="hero-card-title">Designed for public sector teams</p>
+            </div>
+            <p className="hero-card-text">A clean dashboard experience for all roles with consistent government-grade trust.</p>
+          </div>
+        </div>
+      </motion.div>
     </div>
   </section>
 );

@@ -5,13 +5,13 @@ const stats = [
 ];
 
 const Stats = () => (
-  <section className="section section-sm bg-slate-950/70">
+  <section className="section section-sm section-dark">
     <div className="container">
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="stats-grid">
         {stats.map((item) => (
-          <div key={item.label} className="glass-card p-8 text-center">
-            <p className="text-xl font-medium text-blue-300">{item.label}</p>
-            <p className="text-5xl font-bold text-white mt-4">{item.value}</p>
+          <div key={item.label} className="stats-card">
+            <p className="stats-value">{item.value}</p>
+            <p className="stats-label">{item.label}</p>
           </div>
         ))}
       </div>
