@@ -7,7 +7,7 @@ export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
-    const saved = localStorage.getItem('egp-user');
+    const saved = localStorage.getItem('currentUser');
     return saved ? JSON.parse(saved) : null;
   });
   const [loading, setLoading] = useState(false);
@@ -15,9 +15,9 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (user) {
-      localStorage.setItem('egp-user', JSON.stringify(user));
+      localStorage.setItem('currentUser', JSON.stringify(user));
     } else {
-      localStorage.removeItem('egp-user');
+      localStorage.removeItem('currentUser');
     }
   }, [user]);
 

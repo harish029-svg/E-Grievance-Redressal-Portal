@@ -1,24 +1,13 @@
-const loadComplaints = () => {
-  const stored = localStorage.getItem('egp-complaints');
-  return stored ? JSON.parse(stored) : [];
-};
+import api from '../utils/api';
 
 export const officerService = {
   getAssignedComplaints: async () => {
-    return loadComplaints()
-      .filter((_, index) => index % 2 === 0)
-      .map((complaint) => ({
-        ...complaint,
-        assignedOfficer: 'Ravi Officer',
-      }));
+    const response = await api.get('/officer/complaints');
+    return response.data;
   },
   updateAssignedComplaint: async (id, payload) => {
-    const complaints = loadComplaints();
-    const index = complaints.findIndex((complaint) => complaint.id === id);
-    if (index === -1) throw new Error('Complaint not found');
-    complaints[index] = { ...complaints[index], ...payload };
-    localStorage.setItem('egp-complaints', JSON.stringify(complaints));
-    return complaints[index];
+    const response = await api.put(`/officer/complaints/${id}`, payload);
+    return response.data;
   },
 };
 
