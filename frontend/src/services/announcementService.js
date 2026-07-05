@@ -1,20 +1,26 @@
-import api from '../utils/api';
+import axios from "axios";
+
+const API = "http://localhost:5000/api/announcements";
+
+const getToken = () => {
+  return localStorage.getItem("egp-token");
+};
 
 export const announcementService = {
+  // Get all announcements
   getAnnouncements: async () => {
-    const response = await api.get('/announcements');
+    const response = await axios.get(API);
     return response.data;
   },
-  createAnnouncement: async (payload) => {
-    const response = await api.post('/announcements', payload);
-    return response.data;
-  },
-  updateAnnouncement: async (id, payload) => {
-    const response = await api.put(`/announcements/${id}`, payload);
-    return response.data;
-  },
+
+  // Delete announcement
   deleteAnnouncement: async (id) => {
-    const response = await api.delete(`/announcements/${id}`);
+    const response = await axios.delete(`${API}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
+    });
+
     return response.data;
   },
 };

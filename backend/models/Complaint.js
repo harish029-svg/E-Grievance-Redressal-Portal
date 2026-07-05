@@ -12,11 +12,6 @@ const complaintSchema = new mongoose.Schema(
       required: true,
     },
 
-    category: {
-      type: String,
-      required: true,
-    },
-
     citizen: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -37,7 +32,13 @@ const complaintSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      enum: ["Pending", "Assigned", "In Progress", "Resolved", "Rejected"],
+      enum: [
+        "Pending",
+        "Assigned",
+        "In Progress",
+        "Resolved",
+        "Rejected",
+      ],
       default: "Pending",
     },
 
@@ -49,6 +50,7 @@ const complaintSchema = new mongoose.Schema(
 
     image: {
       type: String,
+      default: "",
     },
 
     location: {
@@ -58,6 +60,7 @@ const complaintSchema = new mongoose.Schema(
 
     remarks: {
       type: String,
+      default: "",
     },
   },
   {

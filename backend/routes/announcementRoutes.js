@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 const { protect } = require("../middleware/authMiddleware");
-const { adminOnly } = require("../middleware/roleMiddleware");
 
 const {
   createAnnouncement,
@@ -11,12 +10,12 @@ const {
   deleteAnnouncement,
 } = require("../controllers/announcementController");
 
-router.post("/", protect, adminOnly, createAnnouncement);
+router.post("/", protect, createAnnouncement);
 
 router.get("/", getAnnouncements);
 
-router.put("/:id", protect, adminOnly, updateAnnouncement);
+router.put("/:id", protect, updateAnnouncement);
 
-router.delete("/:id", protect, adminOnly, deleteAnnouncement);
+router.delete("/:id", protect, deleteAnnouncement);
 
 module.exports = router;

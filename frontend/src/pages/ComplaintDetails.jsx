@@ -42,10 +42,18 @@ const ComplaintDetails = () => {
               <h2 className="text-2xl font-semibold text-slate-900 mb-4">{complaint.title}</h2>
               <p className="text-gray-600 leading-relaxed">{complaint.description}</p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="card">
-                  <p className="text-sm text-gray-500">Department</p>
-                  <p className="text-lg font-semibold text-slate-900">{complaint.department}</p>
-                </div>
+               <div className="card">
+
+  <p className="text-sm text-gray-500">
+    Department
+  </p>
+
+  <p className="text-lg font-semibold text-slate-900">
+    {complaint.department?.departmentName ||
+      "Department Not Assigned"}
+  </p>
+
+</div>
                 <div className="card">
                   <p className="text-sm text-gray-500">Priority</p>
                   <p className="text-lg font-semibold text-slate-900">{complaint.priority}</p>

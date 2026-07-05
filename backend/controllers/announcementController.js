@@ -6,8 +6,6 @@ const createAnnouncement = async (req, res) => {
     const announcement = await Announcement.create({
       title: req.body.title,
       message: req.body.message,
-      category: req.body.category || 'Notice',
-      priority: req.body.priority || 'Medium',
       createdBy: req.user._id,
     });
 
@@ -47,8 +45,6 @@ const updateAnnouncement = async (req, res) => {
 
     announcement.title = req.body.title || announcement.title;
     announcement.message = req.body.message || announcement.message;
-    announcement.category = req.body.category || announcement.category;
-    announcement.priority = req.body.priority || announcement.priority;
 
     await announcement.save();
 

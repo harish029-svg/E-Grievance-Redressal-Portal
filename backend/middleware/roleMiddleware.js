@@ -1,11 +1,13 @@
 const adminOnly = (req, res, next) => {
+  console.log("Logged in user:", req.user);
+
   if (req.user && req.user.role === "admin") {
-    next();
-  } else {
-    res.status(403).json({
-      message: "Access denied. Admin only.",
-    });
+    return next();
   }
+
+  return res.status(403).json({
+    message: "Access denied. Admin only.",
+  });
 };
 
 const officerOnly = (req, res, next) => {
@@ -18,12 +20,12 @@ const officerOnly = (req, res, next) => {
   }
 };
 
-const clientOnly = (req, res, next) => {
-  if (req.user && (req.user.role === "client" || req.user.role === "citizen")) {
+const citizenOnly = (req, res, next) => {
+  if (req.user && req.user.role === "citizen") {
     next();
   } else {
     res.status(403).json({
-      message: "Access denied. Client only.",
+      message: "Access denied. Citizen only.",
     });
   }
 };
@@ -31,5 +33,5 @@ const clientOnly = (req, res, next) => {
 module.exports = {
   adminOnly,
   officerOnly,
-  clientOnly,
+  citizenOnly,
 };

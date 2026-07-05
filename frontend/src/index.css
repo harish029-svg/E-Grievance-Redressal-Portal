@@ -1,32 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800&display=swap');
 
 /* ─── Design Tokens ─── */
 :root {
   /* Brand Colors */
-  --color-primary: #0F4C81;
-  --color-primary-light: #1D5F96;
-  --color-primary-dark: #0A3157;
-  --color-secondary: #2E7D32;
-  --color-secondary-light: #43A047;
-  --color-secondary-dark: #1B5E20;
-  --color-accent: #FF6B00;
-  --color-accent-light: #FF8C42;
-  --color-accent-dark: #C74B00;
-  --color-brand: #0F4C81;
-  --color-brand-soft: #F8F9FA;
+  --color-primary: #0F172A;
+  --color-primary-light: #1E293B;
+  --color-primary-dark: #020617;
+  --color-secondary: #5B21B6;
+  --color-secondary-light: #7C3AED;
+  --color-secondary-dark: #4C1D95;
+  --color-accent: #FBBF24;
+  --color-accent-light: #FCD34D;
+  --color-accent-dark: #D97706;
+  --color-brand: #2563EB;
+  --color-brand-soft: #eff6ff;
 
   /* Neutrals */
   --color-white: #FFFFFF;
-  --color-gray-50: #F8F9FA;
-  --color-gray-100: #F3F4F6;
-  --color-gray-200: #E5E7EB;
-  --color-gray-300: #D1D5DB;
-  --color-gray-400: #9CA3AF;
-  --color-gray-500: #6B7280;
-  --color-gray-600: #4B5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1F2937;
-  --color-gray-900: #111827;
+  --color-gray-50: #F8FAFC;
+  --color-gray-100: #F1F5F9;
+  --color-gray-200: #E2E8F0;
+  --color-gray-300: #CBD5E1;
+  --color-gray-400: #94A3B8;
+  --color-gray-500: #64748B;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-gray-800: #1E293B;
+  --color-gray-900: #0F172A;
 
   /* Semantic */
   --color-success: #10B981;
@@ -86,7 +90,7 @@
 
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-  --gradient-hero: linear-gradient(135deg, #0A3157 0%, #0F4C81 45%, #1D5F96 100%);
+  --gradient-hero: linear-gradient(135deg, #020617 0%, #0F172A 40%, #1E1B4B 70%, #312E81 100%);
   --gradient-purple: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);
   --gradient-gold: linear-gradient(135deg, var(--color-accent-dark) 0%, var(--color-accent) 50%, var(--color-accent-light) 100%);
   --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
@@ -120,21 +124,31 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 body {
   font-family: var(--font-body);
-  font-size: 1.0625rem; /* 17px */
+  font-size: 1.0625rem;
   line-height: 1.8;
   color: var(--color-gray-700);
   background-color: var(--color-gray-50);
   min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
   color: var(--color-white);
+} */
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  /* color: var(--color-gray-900); */
 }
+
 
 a {
   color: inherit;
@@ -186,3 +200,5 @@ ul, ol {
   background: var(--color-secondary);
   color: var(--color-white);
 }
+
+

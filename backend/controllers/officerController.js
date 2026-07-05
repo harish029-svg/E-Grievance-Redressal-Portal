@@ -17,6 +17,25 @@ const getAssignedComplaints = async (req, res) => {
   }
 };
 
+const getAssignedComplaintById = async (req, res) => {
+  try {
+    console.log("Logged in Officer:", req.user._id);
+    console.log("Complaint Id:", req.params.id);
+
+    const complaint = await Complaint.findById(req.params.id)
+      .populate("department", "departmentName");
+
+    console.log("Complaint:", complaint);
+
+    res.json(complaint);
+
+  } catch (err) {
+    res.status(500).json({
+      message: err.message,
+    });
+  }
+};
+
 // Update Complaint Status
 const updateComplaintStatus = async (req, res) => {
   try {
@@ -47,7 +66,21 @@ const complaint = await Complaint.findById(req.params.id);
   }
 };
 
+const getDepartments = async (req, res) => {
+  try {
+    const departments = await Department.find().select("departmentName");
+
+    res.status(200).json(departments);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   getAssignedComplaints,
   updateComplaintStatus,
+  getAssignedComplaintById,
+  getDepartments,
 };

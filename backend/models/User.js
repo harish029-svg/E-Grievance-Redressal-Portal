@@ -22,18 +22,17 @@ const userSchema = new mongoose.Schema(
 
     phone: {
       type: String,
-      required: false,
+      required: true,
     },
 
     address: {
       type: String,
-      required: false,
     },
 
     role: {
       type: String,
-      enum: ["client", "officer", "admin"],
-      default: "client",
+      enum: ["citizen", "officer", "admin"],
+      default: "citizen",
     },
 
     department: {

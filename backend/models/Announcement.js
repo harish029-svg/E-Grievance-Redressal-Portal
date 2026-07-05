@@ -12,20 +12,9 @@ const announcementSchema = new mongoose.Schema(
       required: true,
     },
 
-    category: {
-      type: String,
-      default: 'Notice',
-    },
-
-    priority: {
-      type: String,
-      enum: ['High', 'Medium', 'Low'],
-      default: 'Medium',
-    },
-
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
     },
   },
   {

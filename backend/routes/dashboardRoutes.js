@@ -5,7 +5,7 @@ const { protect } = require("../middleware/authMiddleware");
 const {
   adminOnly,
   officerOnly,
-  clientOnly,
+  citizenOnly,
 } = require("../middleware/roleMiddleware");
 
 const {
@@ -18,7 +18,7 @@ const {
 router.get(
   "/citizen",
   protect,
-  clientOnly,
+  citizenOnly,
   citizenDashboard
 );
 

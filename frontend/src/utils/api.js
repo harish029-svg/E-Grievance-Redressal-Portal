@@ -21,9 +21,9 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  if (currentUser?.token) {
-    config.headers.Authorization = `Bearer ${currentUser.token}`;
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
