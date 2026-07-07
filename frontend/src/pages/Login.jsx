@@ -200,6 +200,7 @@ background: "#EFF6FF",              display: "flex",
                   required
                   placeholder="you@example.com"
                   className="form-input"
+                  autoComplete="email"
                   style={{
                     height: "60px",
                     paddingLeft: "55px",
@@ -227,6 +228,7 @@ background: "#EFF6FF",              display: "flex",
                   required
                   placeholder="Enter your password"
                   className="form-input"
+                  autoComplete="current-password"
                   style={{
                     height: "60px",
                     paddingLeft: "55px",

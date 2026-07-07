@@ -1,17 +1,18 @@
+const express = require("express");
+const dotenv = require("dotenv");
+const cors = require("cors");
+
+dotenv.config();
+
 const officerRoutes = require("./routes/officerRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const complaintRoutes = require("./routes/complaintRoutes");
 const authRoutes = require("./routes/authRoutes");
-const express = require("express");
-const dotenv = require("dotenv");
-const cors = require("cors");
 const departmentRoutes = require("./routes/departmentRoutes");
 const announcementRoutes = require("./routes/announcementRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const connectDB = require("./config/db");
-
-dotenv.config();
 
 // Connect Database
 connectDB();
@@ -19,8 +20,21 @@ connectDB();
 const app = express();
 
 // Middleware
-
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://localhost:5175",
+    "http://localhost:5176",
+    "http://localhost:5177",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:5174",
+    "http://127.0.0.1:5175",
+    "http://127.0.0.1:5176",
+    "http://127.0.0.1:5177",
+  ],
+  credentials: true,
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);

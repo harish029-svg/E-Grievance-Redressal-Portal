@@ -29,6 +29,7 @@ useEffect(() => {
 
   loadDashboard();
 }, []);
+
   const roleCards = [
   {
     title: "My Complaints",
@@ -53,7 +54,7 @@ useEffect(() => {
     <div className="page-light">
       <Navbar />
 
-      <main className="container py-24">
+      <div>
 
        <div className="users-header"
        style={{
@@ -387,8 +388,10 @@ className="rounded-2xl bg-white shadow-md p-5 hover:shadow-lg transition h-40"  
 
 </div>
 
-      </main>
+      </div>
+
     </div>
+
   );
 };
 

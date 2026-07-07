@@ -56,6 +56,7 @@ const Register = () => {
               required
               className="form-input"
               placeholder="John Doe"
+              autoComplete="name"
             />
           </label>
 
@@ -69,6 +70,7 @@ const Register = () => {
               required
               className="form-input"
               placeholder="you@example.com"
+              autoComplete="email"
             />
           </label>
 
@@ -107,6 +109,7 @@ const Register = () => {
               required
               className="form-input"
               placeholder="Create a strong password"
+              autoComplete="new-password"
             />
           </label>
 
